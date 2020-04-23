@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<!-- <html>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <!-- we import arjs version without NFT but with marker 
     + location based support -->
@@ -18,6 +18,31 @@
                     <!-- <a-text value="Hello, World!" scale="120 120 120" color="green"></a-text> -->
                     <!-- <a-text value="Hello, world!" font="fonts/Exo2Bold.fnt" color="black" rotation="-90 0 0" align="center" scale="2 2 2" position="0.01 -0.2 0"></a-text> -->
                 </a-box>
+            </a-marker>
+
+            <!-- add a camera to the scene that renders the objects for us -->
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html> -->
+
+<html>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker
+    + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene embedded arjs>
+            <!-- handle hiro marker -->
+            <a-marker preset="hiro">
+                <!-- raw.githack.com serves raw files directly from GitHub,
+                with proper Content-Type headers -->
+                <a-entity
+                position="0 -1 0"
+                scale="0.5 0.5 0.5"
+                gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf"
+                >
+                </a-entity>
             </a-marker>
 
             <!-- add a camera to the scene that renders the objects for us -->
