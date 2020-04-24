@@ -7,11 +7,11 @@
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs>
             <a-assets>
-                <video id="helmet_video" autoplay="true" loop="true" src="helm_vid.mp4"></video>
+                <video id="helmet_video" autoplay="true" loop="true" src="assets/helm_vid.mp4"></video>
             </a-assets>
             
             <!-- Using the asset management system. -->
-            <a-video src="#helmet_video" width="16" height="9" position="0 0 -20"></a-video>
+            <a-video src="#helmet_video" width="16" height="9" scale="0.5 0.5 0.5" position="0 0 -20"></a-video>
 
             <!-- handle hiro marker -->
             <a-marker preset="hiro">
