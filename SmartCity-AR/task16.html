@@ -18,7 +18,9 @@
           // var marker3 = document.querySelector("#marker3");
           var fullbutton = document.querySelector("#fullscreen");
           var Video_0 = document.querySelector("#waves_video");
+          var Video_2 = document.querySelector("#forest_video");
           var button = document.querySelector("#mutebutton");
+          var button2 = document.querySelector("#mutebutton2");
           button.hidden = true;
           Video_0.pause();
 
@@ -37,15 +39,15 @@
 
           marker2.addEventListener("markerFound", function (evt) {
             markerFound = 1;
-            button.hidden = false;
+            button2.hidden = false;
             // Video_0.play();  // if you want the video 
             // to start immediently on marker detection, uncomment this
           });
 
           marker2.addEventListener("markerLost", function (evt) {
             markerFound = 0;
-            Video_0.pause();
-            button.hidden = true;
+            Video_1.pause();
+            button2.hidden = true;
           });
 
           // marker3.addEventListener("markerFound", function (evt) {
@@ -72,6 +74,19 @@
               button.innerHTML="Play";
               Video_0.muted=true;
               Video_0.pause();
+            }
+          });
+
+          button2.addEventListener("click", function(evt){
+            console.log("button2 clicked")
+            if(Video_2.muted==true){
+              button2.innerHTML="Pause";
+              Video_2.muted=false;
+              Video_2.play();
+            }else{
+              button2.innerHTML="Play";
+              Video_2.muted=true;
+              Video_2.pause();
             }
           });
 
@@ -120,6 +135,7 @@
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
   <div style='position: absolute; bottom: 10px; right: 30px; width:100%; text-align: center; z-index: 1;'>
     <button id="mutebutton" style='position: absolute; bottom: 10px' hidden>Play</button>
+    <button id="mutebutton2" style='position: absolute; bottom: 10px' hidden>Play</button>
   </div>
   <div style='position: absolute; bottom: 5px; left: 30px; width:100%; text-align: right; z-index: 1;'>
     <input type="image" id="fullscreen" src="assets/fullscreen.png" style='position: absolute; bottom: 0px; right: 35px;'></input>
@@ -128,6 +144,8 @@
     <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
     <a-assets>
       <video id="waves_video" autoplay="false" loop crossorigin="anonymous" src="assets/waves.mp4" webkit-playsinline playsinline controls muted></video>
+      <video id="forest_video" autoplay="false" loop crossorigin="anonymous" src="assets/forest.mp4" webkit-playsinline playsinline controls muted></video>
+
     </a-assets>
     <!-- handle hiro marker -->
     <a-marker id="marker" preset="hiro" emitevents="true" button>
@@ -135,7 +153,7 @@
     </a-marker>
     <!-- handle kanji marker -->
     <a-marker id="marker2" preset='kanji' emitevents="true" button>
-      <a-video src="#waves_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
+      <a-video src="#forest_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker>
     <!-- handle custom marker -->
     <!-- <a-marker id="marker3" type='pattern' url='assets/pattern-cat.patt' emitevents="true" button>
