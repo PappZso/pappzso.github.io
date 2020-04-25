@@ -126,7 +126,7 @@
   <a-scene embedded arjs="debugUIEnabled: false; sourceType: webcam" vr-mode-ui="enabled: false">
     <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
     <a-assets>
-      <video id="wave_video" autoplay="false" loop crossorigin="anonymous" src="assets/video.mp4" webkit-playsinline playsinline controls muted></video>
+      <video id="wave_video" autoplay="false" loop crossorigin="anonymous" src="assets/waves.mp4" webkit-playsinline playsinline controls muted></video>
     </a-assets>
 
     <a-marker id="marker" preset="hiro" emitevents="true" button>
@@ -137,7 +137,7 @@
     <a-marker id="marker2" preset='kanji' emitevents="true" button>
         <a-video src="#wave_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker>
-    
+
     <!-- handle custom marker -->
     <a-marker id="marker3" type='pattern' url='assets/pattern_kari_logo_small.patt' emitevents="true" button>
         <a-video src="#wave_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
