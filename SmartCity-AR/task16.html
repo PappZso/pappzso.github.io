@@ -22,7 +22,9 @@
           var button = document.querySelector("#mutebutton");
           var button2 = document.querySelector("#mutebutton2");
           button.hidden = true;
+          button2.hidden = true;
           Video_0.pause();
+          Video_2.pause();
 
           marker.addEventListener("markerFound", function (evt) {
             markerFound = 1;
@@ -40,7 +42,7 @@
           marker2.addEventListener("markerFound", function (evt) {
             markerFound = 1;
             button2.hidden = false;
-            // Video_0.play();  // if you want the video 
+            // Video_2.play();  // if you want the video 
             // to start immediently on marker detection, uncomment this
           });
 
