@@ -9,6 +9,7 @@
   <!-- this part defines the playback / control function and events -->
   <script>
     var markerFound = 0;
+    var markerFound2 = 0;
     AFRAME.registerComponent('button', {
         init: function ()
         {
@@ -53,14 +54,14 @@
           });
 
           marker2.addEventListener("markerFound", function (evt) {
-            markerFound = 1;
+            markerFound2 = 1;
             button2.hidden = false;
             // Video_2.play();  // if you want the video 
             // to start immediently on marker detection, uncomment this
           });
 
           marker2.addEventListener("markerLost", function (evt) {
-            markerFound = 0;
+            markerFound2 = 0;
             Video_2.pause();
             button2.hidden = true;
           });
@@ -69,11 +70,11 @@
           button2.addEventListener("click", function(evt){
             console.log("button clicked")
             if(Video_2.muted==true){
-              button2.innerHTML="Pause";
+              button2.innerHTML="Pause2";
               Video_2.muted=false;
               Video_2.play();
             }else{
-              button2.innerHTML="Play";
+              button2.innerHTML="Play2";
               Video_2.muted=true;
               Video_2.pause();
             }
@@ -124,7 +125,7 @@
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
   <div style='position: absolute; bottom: 10px; right: 30px; width:100%; text-align: center; z-index: 1;'>
     <button id="mutebutton" style='position: absolute; bottom: 10px' hidden>Play</button>
-    <button id="mutebutton2" style='position: absolute; left: 100px; bottom: 10px' hidden>Play</button>
+    <button id="mutebutton2" style='position: absolute; left: 100px; bottom: 10px' hidden>Play2</button>
   </div>
   <div style='position: absolute; bottom: 5px; left: 30px; width:100%; text-align: right; z-index: 1;'>
     <input type="image" id="fullscreen" src="assets/fullscreen.png" style='position: absolute; bottom: 0px; right: 35px;'></input>
@@ -140,7 +141,7 @@
       <a-video src="#waves_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker>
 
-    <a-marker id="marker" preset="kanji" emitevents="true" button>
+    <a-marker id="marker" preset="kanji" emitevents="true" button2>
       <a-video src="#forest_video" id="Video_2" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker>
 
