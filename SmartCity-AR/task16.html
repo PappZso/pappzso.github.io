@@ -48,7 +48,7 @@
 
           marker2.addEventListener("markerLost", function (evt) {
             markerFound = 0;
-            Video_1.pause();
+            Video_2.pause();
             button2.hidden = true;
           });
 
@@ -154,7 +154,7 @@
       <a-video src="#waves_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker> -->
     <!-- handle kanji marker -->
-    <a-marker id="marker2" preset='kanji' emitevents="true" button>
+    <a-marker id="marker2" preset='kanji' emitevents="true" button2>
       <a-video src="#forest_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker>
     <!-- handle custom marker -->
