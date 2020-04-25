@@ -8,12 +8,12 @@
         <a-scene embedded arjs>
             <a-assets>
                 <a-asset-item id="helmet" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf"></a-asset-item>
-                <video id="helmet_video" autoplay="true" loop="true" src="assets/helm_vid.mp4"></video>
+                <video id="waves" autoplay="true" loop="true" src="assets/waves.mp4"></video>
                 <audio id="helmet_sound" src="assets/helmet.mp3" response-type="arraybuffer" autoplay="true" loop></audio>
             </a-assets>
             
             <!-- Using the asset management system. -->
-            <a-video src="#helmet_video" width="16" height="9" scale="0.5 0.5 0.5" position="0 0 -20"></a-video>
+            <a-video src="#waves" width="16" height="9" scale="0.5 0.5 0.5" position="0 0 -20"></a-video>
 
             <!-- handle hiro marker -->
             <a-marker preset="hiro">
