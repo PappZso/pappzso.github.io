@@ -14,11 +14,19 @@
         {
           var elem = document.documentElement;
           var marker = document.querySelector("#marker");
+          var marker = document.querySelector("#marker2");
+          var marker = document.querySelector("#marker3");
           var fullbutton = document.querySelector("#fullscreen");
           var Video_0 = document.querySelector("#waves_video");
+          var Video_1 = document.querySelector("#forest_video");
+          var Video_2 = document.querySelector("#cat_video");
           var button = document.querySelector("#mutebutton");
+          var button2 = document.querySelector("#mutebutton2");
+          var button3 = document.querySelector("#mutebutton3");
           button.hidden = true;
           Video_0.pause();
+          Video_2.pause();
+          Video_3.pause();
 
           marker.addEventListener("markerFound", function (evt) {
             markerFound = 1;
@@ -33,6 +41,32 @@
             button.hidden = true;
           });
 
+          marker2.addEventListener("markerFound2", function (evt) {
+            markerFound2 = 1;
+            button2.hidden = false;
+            // Video_0.play();  // if you want the video 
+            // to start immediently on marker detection, uncomment this
+          });
+
+          marker2.addEventListener("markerLost2", function (evt) {
+            markerFound2 = 0;
+            Video_2.pause();
+            button2.hidden = true;
+          });
+
+          marker3.addEventListener("markerFound3", function (evt) {
+            markerFound3 = 1;
+            button3.hidden = false;
+            // Video_0.play();  // if you want the video 
+            // to start immediently on marker detection, uncomment this
+          });
+
+          marker3.addEventListener("markerLost3", function (evt) {
+            markerFound3 = 0;
+            Video_3.pause();
+            button3.hidden = true;
+          });
+
           // button for video play/pause
           button.addEventListener("click", function(evt){
             console.log("button clicked")
@@ -44,6 +78,34 @@
               button.innerHTML="Play";
               Video_0.muted=true;
               Video_0.pause();
+            }
+          });
+
+          // button for video play/pause
+          button2.addEventListener("click", function(evt){
+            console.log("button clicked")
+            if(Video_2.muted==true){
+              button.innerHTML="Pause";
+              Video_2.muted=false;
+              Video_2.play();
+            }else{
+              button.innerHTML="Play";
+              Video_2.muted=true;
+              Video_2.pause();
+            }
+          });
+
+          // button for video play/pause
+          button3.addEventListener("click", function(evt){
+            console.log("button clicked")
+            if(Video_3.muted==true){
+              button.innerHTML="Pause";
+              Video_3.muted=false;
+              Video_3.play();
+            }else{
+              button.innerHTML="Play";
+              Video_3.muted=true;
+              Video_3.pause();
             }
           });
 
@@ -92,6 +154,8 @@
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
   <div style='position: absolute; bottom: 10px; right: 30px; width:100%; text-align: center; z-index: 1;'>
     <button id="mutebutton" style='position: absolute; bottom: 10px' hidden>Play</button>
+    <button id="mutebutton2" style='position: absolute; bottom: 10px' hidden>Play2</button>
+    <button id="mutebutton3" style='position: absolute; bottom: 10px' hidden>Play3</button>
   </div>
   <div style='position: absolute; bottom: 5px; left: 30px; width:100%; text-align: right; z-index: 1;'>
     <input type="image" id="fullscreen" src="assets/fullscreen.png" style='position: absolute; bottom: 0px; right: 35px;'></input>
@@ -101,8 +165,23 @@
     <a-assets>
       <video id="waves_video" autoplay="false" loop crossorigin="anonymous" src="assets/waves.mp4" webkit-playsinline playsinline controls muted></video>
     </a-assets>
+    <a-assets>
+      <video id="forest_video" autoplay="false" loop crossorigin="anonymous" src="assets/forest.mp4" webkit-playsinline playsinline controls muted></video>
+    </a-assets>
+    <a-assets>
+      <video id="cat_video" autoplay="false" loop crossorigin="anonymous" src="assets/cat.mp4" webkit-playsinline playsinline controls muted></video>
+    </a-assets>
+    <!-- handle hiro marker -->
     <a-marker id="marker" preset="hiro" emitevents="true" button>
       <a-video src="#waves_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
+    </a-marker>
+    <!-- handle kanji marker -->
+    <a-marker id="marker2" preset='kanji' emitevents="true" button>
+      <a-video src="#forest_video" id="Video_1" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
+    </a-marker>
+    <!-- handle custom marker -->
+    <a-marker id="marker3" type='pattern' url='assets/pattern-cat.patt' emitevents="true" button>
+        <a-video src="#cat_video" id="Video_2" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
