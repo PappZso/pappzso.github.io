@@ -14,10 +14,8 @@
         {
           var elem = document.documentElement;
           var marker = document.querySelector("#marker");
-          var marker2 = document.querySelector("#marker2");
-          var marker3 = document.querySelector("#marker3");
           var fullbutton = document.querySelector("#fullscreen");
-          var Video_0 = document.querySelector("#wave_video");
+          var Video_0 = document.querySelector("#waves_video");
           var button = document.querySelector("#mutebutton");
           button.hidden = true;
           Video_0.pause();
@@ -35,31 +33,6 @@
             button.hidden = true;
           });
 
-          marker2.addEventListener("markerFound", function (evt) {
-            markerFound = 1;
-            button.hidden = false;
-            // Video_0.play();  // if you want the video 
-            // to start immediently on marker detection, uncomment this
-          });
-
-          marker2.addEventListener("markerLost", function (evt) {
-            markerFound = 0;
-            Video_0.pause();
-            button.hidden = true;
-          });
-
-          marker3.addEventListener("markerFound", function (evt) {
-            markerFound = 1;
-            button.hidden = false;
-            // Video_0.play();  // if you want the video 
-            // to start immediently on marker detection, uncomment this
-          });
-
-          marker3.addEventListener("markerLost", function (evt) {
-            markerFound = 0;
-            Video_0.pause();
-            button.hidden = true;
-          });
           // button for video play/pause
           button.addEventListener("click", function(evt){
             console.log("button clicked")
@@ -126,23 +99,11 @@
   <a-scene embedded arjs="debugUIEnabled: false; sourceType: webcam" vr-mode-ui="enabled: false">
     <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .intersectable; useWorldCoordinates: true;"></a-entity>
     <a-assets>
-      <video id="wave_video" autoplay="false" loop crossorigin="anonymous" src="assets/waves.mp4" webkit-playsinline playsinline controls muted></video>
+      <video id="waves_video" autoplay="false" loop crossorigin="anonymous" src="assets/waves.mp4" webkit-playsinline playsinline controls muted></video>
     </a-assets>
-
     <a-marker id="marker" preset="hiro" emitevents="true" button>
-      <a-video src="#wave_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
+      <a-video src="#waves_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker>
-
-      <!-- handle kanji marker -->
-    <a-marker id="marker2" preset='kanji' emitevents="true" button>
-        <a-video src="#wave_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
-    </a-marker>
-
-    <!-- handle custom marker -->
-    <a-marker id="marker3" type='pattern' url='assets/pattern_kari_logo_small.patt' emitevents="true" button>
-        <a-video src="#wave_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
-    </a-marker>
-
     <a-entity camera></a-entity>
   </a-scene>
 </body>
