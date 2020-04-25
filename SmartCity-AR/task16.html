@@ -67,18 +67,18 @@
           // });
 
           // button for video play/pause
-          button.addEventListener("click", function(evt){
-            console.log("button clicked")
-            if(Video_0.muted==true){
-              button.innerHTML="Pause";
-              Video_0.muted=false;
-              Video_0.play();
-            }else{
-              button.innerHTML="Play";
-              Video_0.muted=true;
-              Video_0.pause();
-            }
-          });
+          // button.addEventListener("click", function(evt){
+          //   console.log("button clicked")
+          //   if(Video_0.muted==true){
+          //     button.innerHTML="Pause";
+          //     Video_0.muted=false;
+          //     Video_0.play();
+          //   }else{
+          //     button.innerHTML="Play";
+          //     Video_0.muted=true;
+          //     Video_0.pause();
+          //   }
+          // });
 
           button2.addEventListener("click", function(evt){
             console.log("button2 clicked")
@@ -155,7 +155,7 @@
       <a-video src="#waves_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker> -->
     <!-- handle kanji marker -->
-    <a-marker id="marker2" preset='kanji' emitevents="true" button2>
+    <a-marker id="marker2" preset='kanji' emitevents="true" button>
       <a-video src="#forest_video" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
     </a-marker>
     <!-- handle custom marker -->
